@@ -16,49 +16,8 @@ function initialize() {
 function deal() {
     if(hand.length >= 3){
         
-        if ((hand[0].value == "KING" || hand[0].value == "QUEEN" || hand[0].value == "JACK")) {
-
-            hand[0].value = 10;
-        
-         
-        }
-
-        if((hand[1].value == "KING" || hand[1].value == "QUEEN" || hand[1].value == "JACK")) {
-
-
-            hand[1].value = 10;
-        
-
-        }
-
-        
-        if((hand[0].value == "ACE" )) {
-
-
-            hand[0].value = 11;
-        
-
-        }
-
-
-          
-        if((hand[1].value == "ACE" )) {
-
-
-            hand[1].value = 11;
-        
-
-        }
-    
-        var result = parseInt(hand[0].value, 10) + parseInt(hand[1].value, 10)
-
-        document.getElementById("score").innerHTML +=`<p>${result} </p>`
-
-        console.log(result) // parse int to convert strings to integar
-
-        console.log("it is working well");
-
-
+       
+        first_calculator();
       
 
     }
@@ -87,9 +46,66 @@ function deal() {
 
 }
 
+function stay() {
+    
+    first_calculator()
+        
+    var result = parseInt(hand[0].value, 10) + parseInt(hand[1].value, 10)
+
+    document.getElementById("score").innerHTML +=`<p>${result} </p>`
+
+    console.log(result) // parse int to convert strings to integar
+
+    console.log("it is working well");
+
+}
+
+function first_calculator() {
+
+    if ((hand[0].value == "KING" || hand[0].value == "QUEEN" || hand[0].value == "JACK")) {
+
+        hand[0].value = 10;
+    
+     
+    }
+
+    if((hand[1].value == "KING" || hand[1].value == "QUEEN" || hand[1].value == "JACK")) {
+
+
+        hand[1].value = 10;
+    
+
+    }
+
+    
+    if((hand[0].value == "ACE" )) {
+
+
+        hand[0].value = 11;
+    
+
+    }
+
+
+      
+    if((hand[1].value == "ACE" )) {
+
+
+        hand[1].value = 11;
+    
+
+    }
+
+
+    
+}
 
 initialize();
 
 const button = document.querySelector('button');
 
 button.addEventListener('click', deal);
+
+const button2 = document.getElementById('arcade-button2')
+
+button2.addEventListener('click', stay);
